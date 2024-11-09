@@ -1,0 +1,42 @@
+<p>livro-dados works!</p>
+<main>
+    <h1 class="ml-5 mt-4">Dados do Livro</h1>
+    <form (submit)="incluir()" class="ml-5 mr-5 mt-3" ngNativeValidate>
+        <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input type="text"
+                class="form-control"
+                [(ngModel)]="livro.titulo"
+                name="titulo"
+                required/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Resumo</label>
+            <textarea class="form-control"
+                rows="3"
+                [(ngModel)]="livro.resumo"
+                name="resumo"
+                required>
+            </textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Editora</label>
+            <select class="form-control">
+              <option *ngFor="let editora of editoras" [value]="editora.codEditora">
+                {{ editora.nome }}
+                <!-- To do, resolver problema exibição da editora. -->
+              </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Autores (1 por linha)</label>
+            <textarea class="form-control"
+                rows="3"
+                [(ngModel)]="autoresForm"
+                name="autores"
+                required>
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar Dados</button>
+    </form>
+  </main>
